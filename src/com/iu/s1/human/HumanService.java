@@ -66,30 +66,14 @@ public class HumanService {
 		humanDTO.setPhone(sc.next());
 		System.out.println("생일 입력"); //20001224
 		String s = sc.next();
-		int year = s.substring(0,4);
-		int month = s.substring(4,6);
-		int date = s.substring(6);
+		int year = Integer.parseInt(s.substring(0,4));
+		int month = Integer.parseInt(s.substring(4,6));
+		int date = Integer.parseInt(s.substring(6));
 		
-		Calendar ca = Calendar.getInstance();
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(year, month-1, date, 0,0,0);
 		
-		int year = ca.get(Calendar.YEAR);
-		int month = ca.get(Calendar.MONTH);
-		int date = ca.get(Calendar.DATE);
-		ca.set(2000, 0, 14);
-		System.out.println(ca.getTime());
-		
-		String pattern = "yyyy년MM월dd일 - HH:mm:ss";
-		
-		SimpleDateFormat sd = new SimpleDateFormat(pattern);
-		substring s = sd.format(ca.getTime()); //data 타입으로 바꿔서 집어넣자
-		System.out.println(r);
-		
-		pattern = "yyyy-MM-dd (E)";
-		sd.applyPattern(pattern);
-		
-		
-		pattern = "yyyyMMdd";
-		sd.applyPattern(pattern);
+		humanDTO.setBirth(calendar);
 		
 		return humanDTO; //호출한 곳으로 감
 	}
