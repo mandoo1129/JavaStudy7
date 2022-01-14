@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class HumanMenu {
-	
-	
-	
 	//접근지정자 [그외지정자] 리턴타입 메서드명([매개변수 선언들..]) {
 	public void select() {
 		Scanner sc = new Scanner(System.in);
@@ -36,7 +33,7 @@ public class HumanMenu {
 				ar.add(humanDTO);
 				System.out.println(ar);
 			}else if(select==4) {
-				System.out.println("44444");
+				boolean flag = hs.deleteHuman(ar);
 			}else {
 				System.out.println("Finish");
 				break;
